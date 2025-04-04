@@ -1,4 +1,4 @@
-# IA-Projeto
+# IA-Projeto. HEART DISEASE
 
 As doenças cardíacas representam um dos problemas de saúde mais graves na atualidade,
 sendo a principal causa de mortalidade no mundo (responsáveis por 17,9 milhões de mortes
