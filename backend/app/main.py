@@ -1,18 +1,14 @@
 from fastapi import FastAPI
-from app.routers import predict
-
 from fastapi.middleware.cors import CORSMiddleware
+from app.routers.predict import router as predict_router
 
 def create_app() -> FastAPI:
     app = FastAPI(
         title="API Previsão de Doenças Cardíacas",
-        description=(
-            "Recebe dados de um paciente e retorna a probabilidade de doença cardíaca usando um modelo SVM treinado previamente."
-        ),
+        description="Recebe dados do paciente e retorna a probabilidade de doença cardíaca.",
         version="1.0.0"
     )
 
-    # Habilita CORS (ajuste se precisar restringir origens)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
@@ -20,12 +16,7 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    # Registra somente a rota de predição
-    app.include_router(predict.router, prefix="/predict", tags=["Predição"])
+    app.include_router(predict_router, prefix="/predict", tags=["Predição"])
     return app
 
 app = create_app()
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
