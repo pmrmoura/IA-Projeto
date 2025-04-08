@@ -1,0 +1,25 @@
+{
+  "status": "SVM treinado com sucesso!",
+  "best_params": {
+    "C": 1,
+    "gamma": "scale",
+    "kernel": "rbf"
+  },
+  "accuracy": 0.7935,
+  "precision": 0.8019,
+  "recall": 0.8333,
+  "f1_score": 0.8173,
+  "features": [
+    "age",
+    "sex",
+    "cp",
+    "thalch",
+    "exang",
+    "oldpeak",
+    "ca",
+    "trestbps",
+    "chol",
+    "restecg",
+    "slope"
+  ]
+}
