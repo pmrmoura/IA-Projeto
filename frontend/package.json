@@ -10,11 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "d3-scale-chromatic": "^3.0.0",
+    "heart-disease-predictor": "file:",
     "lucide-react": "^0.344.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recharts": "^2.12.0",
-    "d3-scale-chromatic": "^3.0.0"
+    "recharts": "^2.12.0"
   },
   "devDependencies": {
     "@types/d3-scale-chromatic": "^3.0.3",

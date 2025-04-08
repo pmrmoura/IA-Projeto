@@ -1,23 +1,26 @@
 from fastapi import FastAPI
-from app.routers import train, predict
+from app.routers import predict
+
+from fastapi.middleware.cors import CORSMiddleware
 
 def create_app() -> FastAPI:
     app = FastAPI(
-        title="API Previsão de Doenças Cardíacas (SVM)",
+        title="API Previsão de Doenças Cardíacas",
         description=(
-            "Endpoints para treinar e prever usando SVM com pipeline completo. "
-            "Se já existir um modelo treinado, o upload de um novo CSV unifica os dados e retreina o modelo. "
-            "A predição só é realizada se houver um modelo ativo."
+            "Recebe dados de um paciente e retorna a probabilidade de doença cardíaca usando um modelo SVM treinado previamente."
         ),
         version="1.0.0"
     )
 
-    # Apenas para debugar o sys.path
-    import sys
-    print("sys.path:", sys.path)
+    # Habilita CORS (ajuste se precisar restringir origens)
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
-    # Registra os routers
-    app.include_router(train.router, prefix="/train", tags=["Treinamento"])
+    # Registra somente a rota de predição
     app.include_router(predict.router, prefix="/predict", tags=["Predição"])
     return app
 
