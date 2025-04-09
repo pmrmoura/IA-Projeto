@@ -26,3 +26,54 @@ cardíacas amplamente utilizado em pesquisas de Machine Learning aplicado à sa�
 está disponível publicamente no UCI Machine Learning Repository e no Kaggle. O objetivo
 deste dataset é permitir a criação de modelos preditivos que auxiliem na identificação
 precoce de doenças cardíacas com base em fatores clínicos.
+
+# HeartGuard AI – Frontend
+
+Este é o frontend do **HeartGuard AI**, uma ferramenta de predição de risco de doença cardíaca alimentada por inteligência artificial.
+
+## 🌐 Demonstração Online
+
+Você pode acessar a versão ao vivo aqui:  
+👉 [https://healthguardai.netlify.app/](https://healthguardai.netlify.app/)
+
+---
+
+## 🚀 Rodar Localmente
+
+Se preferir rodar o projeto localmente, siga os passos abaixo:
+
+### ✅ Requisitos
+- Ter o **Node.js** instalado (de preferência versão 16 ou superior)
+
+### 📦 Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone <seu-link-do-repo>
+   cd frontend
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+4. Abra o navegador e acesse: `http://localhost:3000`
+
+---
+
+## 📝 Observações
+
+- Certifique-se de que a API backend esteja rodando ou acessível (endpoint padrão: `https://heart-api-lbj6.onrender.com/predict`).
+- Este frontend envia os dados do formulário para a API e exibe o resultado com base na predição.
+
+---
+
+## 📄 Licença
+
+Licença MIT
