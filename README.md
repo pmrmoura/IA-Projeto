@@ -49,7 +49,7 @@ Se preferir rodar o projeto localmente, siga os passos abaixo:
 
 1. Clone o repositório:
    ```bash
-   git clone <seu-link-do-repo>
+   git clone https://github.com/pmrmoura/IA-Projeto
    cd frontend
    ```
 
@@ -63,7 +63,7 @@ Se preferir rodar o projeto localmente, siga os passos abaixo:
    npm run dev
    ```
 
-4. Abra o navegador e acesse: `http://localhost:3000`
+4. Abra o navegador e acesse: `http://localhost:5173` ou a porta que o comando indicar
 
 ---
 
