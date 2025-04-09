@@ -71,9 +71,3 @@ Se preferir rodar o projeto localmente, siga os passos abaixo:
 
 - Certifique-se de que a API backend esteja rodando ou acessível (endpoint padrão: `https://heart-api-lbj6.onrender.com/predict`).
 - Este frontend envia os dados do formulário para a API e exibe o resultado com base na predição.
-
----
-
-## 📄 Licença
-
-Licença MIT
