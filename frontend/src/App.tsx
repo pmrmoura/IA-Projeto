@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Activity, AlertCircle, CheckCircle2, Loader2, BarChart as ChartBar } from 'lucide-react';
-import { PatientData, getMockPrediction } from './mockData';
+import { PatientData } from './mockData';
 import FeatureImportanceChart from './components/FeatureImportanceChart';
 import DistributionChart from './components/DistributionChart';
 import ScatterPlot from './components/ScatterPlot';
@@ -33,10 +33,36 @@ function App() {
     setError(null);
     
     try {
-      // Simulate API call with mock data
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      const prediction = getMockPrediction(formData);
-      setResult(prediction);
+      const response = await fetch('https://heart-api-lbj6.onrender.com/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          age: formData.age,
+          sex: formData.sex,
+          cp: formData.cp,
+          trestbps: formData.trestbps,
+          chol: formData.chol,
+          restecg: formData.restecg,
+          thalch: formData.thalach,
+          exang: formData.exang,
+          oldpeak: formData.oldpeak,
+          ca: formData.ca,
+          slope: formData.slope,
+          thal: formData.thal,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+
+      const prediction = await response.json();
+      setResult({
+        probability: prediction.probability_class_1,
+        prediction: prediction.prediction
+      });
     } catch (err) {
       setError('Failed to get prediction. Please try again.');
     } finally {
@@ -283,7 +309,7 @@ function App() {
                   <p className={`text-3xl font-bold ${
                     result.prediction === 0 ? 'text-green-500' : 'text-red-500'
                   }`}>
-                    {result.prediction === 0 ? 'Low Risk' : 'High Risk'}
+                    {result.prediction === 0 ? 'No Heart Disease' : 'Heart Disease'}
                   </p>
                 </div>
               </div>
